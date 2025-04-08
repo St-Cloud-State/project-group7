@@ -1,36 +1,63 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-    <title>Book Reviews</title>
+    <title>University Registration System - Phase 1</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-
 </head>
-
 <body>
-    <h1>Book Reviews</h1>
-
-    <!-- Add a div to input book data -->
-    <div id="addBook">
-        <h2>Add a Book</h2>
-        <input type="text" id="bookTitle" placeholder="Book Title">
-        <input type="text" id="publicationYear" placeholder="Publication Year">
-        <button onclick="addBook()">Add</button>
+    <h1>University Registration System - Phase 1</h1>
+    
+    <!-- Add Student Section -->
+    <div id="studentSection">
+      <h2>Add Student</h2>
+      <input type="text" id="studentID" placeholder="Student ID">
+      <input type="text" id="studentName" placeholder="Name">
+      <input type="text" id="studentAddress" placeholder="Address">
+      <button onclick="addStudent()">Add Student</button>
     </div>
-
-    <!-- Display books in this div -->
-    <div id="bookList">
-        <!-- Book data will be displayed here dynamically -->
+    
+    <!-- Add Course Section -->
+    <div id="courseSection">
+      <h2>Add Course</h2>
+      <input type="text" id="courseID" placeholder="Course ID (e.g., MATH271)">
+      <input type="text" id="courseName" placeholder="Course Name">
+      <input type="number" id="courseCredits" placeholder="Credits">
+      <button onclick="addCourse()">Add Course</button>
     </div>
-
-    <button id="showBooksButton" onclick="showAllBooks()">Show All Books</button>
-
-    <!-- Display books in this div -->
-    <div id="allbooks">
-        <!-- Book data will be displayed here dynamically -->
+    
+    <!-- Add Section Section -->
+    <div id="sectionSection">
+      <h2>Add Section</h2>
+      <input type="text" id="sectionID" placeholder="Section ID">
+      <input type="text" id="sectionCourseID" placeholder="Course ID">
+      <input type="text" id="sectionSemester" placeholder="Semester (Fall, Spring, Summer)">
+      <input type="number" id="sectionYear" placeholder="Year">
+      <button onclick="addSection()">Add Section</button>
     </div>
-
-
+    
+    <hr>
+    
+    <!-- List Operations -->
+    <div id="listSection">
+      <h2>List Operations</h2>
+      
+      <!-- List all students -->
+      <button onclick="showStudents()">Show All Students</button>
+      <div id="studentsList"></div>
+      
+      <!-- List courses (optional rubric filter) -->
+      <br>
+      <input type="text" id="filterRubric" placeholder="Enter Rubric to Filter Courses (e.g., MATH)">
+      <button onclick="showCourses()">Show Courses</button>
+      <div id="coursesList"></div>
+      
+      <!-- List sections for a course -->
+      <br>
+      <input type="text" id="filterCourseID" placeholder="Enter Course ID for Sections (e.g., MATH271)">
+      <button onclick="showSections()">Show Sections</button>
+      <div id="sectionsList"></div>
+    </div>
+    
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-
 </html>
