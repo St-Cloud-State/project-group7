@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Registration System - Phase 1</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>University Registration System - Phase 1</h1>
+    
+    <!-- Add Student Section -->
+    <div id="studentSection">
+      <h2>Add Student</h2>
+      <input type="text" id="studentID" placeholder="Student ID">
+      <input type="text" id="studentName" placeholder="Name">
+      <input type="text" id="studentAddress" placeholder="Address">
+      <button onclick="addStudent()">Add Student</button>
+    </div>
+    
+    <!-- Add Course Section -->
+    <div id="courseSection">
+      <h2>Add Course</h2>
+      <input type="text" id="courseID" placeholder="Course ID (e.g., MATH271)">
+      <input type="text" id="courseName" placeholder="Course Name">
+      <input type="number" id="courseCredits" placeholder="Credits">
+      <button onclick="addCourse()">Add Course</button>
+    </div>
+    
+    <!-- Add Section Section -->
+    <div id="sectionSection">
+      <h2>Add Section</h2>
+      <input type="text" id="sectionID" placeholder="Section ID">
+      <input type="text" id="sectionCourseID" placeholder="Course ID">
+      <input type="text" id="sectionSemester" placeholder="Semester (Fall, Spring, Summer)">
+      <input type="number" id="sectionYear" placeholder="Year">
+      <button onclick="addSection()">Add Section</button>
+    </div>
+    
+    <hr>
+    
+    <!-- List Operations -->
+    <div id="listSection">
+      <h2>List Operations</h2>
+      
+      <!-- List all students -->
+      <button onclick="showStudents()">Show All Students</button>
+      <div id="studentsList"></div>
+      
+      <!-- List courses (optional rubric filter) -->
+      <br>
+      <input type="text" id="filterRubric" placeholder="Enter Rubric to Filter Courses (e.g., MATH)">
+      <button onclick="showCourses()">Show Courses</button>
+      <div id="coursesList"></div>
+      
+      <!-- List sections for a course -->
+      <br>
+      <input type="text" id="filterCourseID" placeholder="Enter Course ID for Sections (e.g., MATH271)">
+      <button onclick="showSections()">Show Sections</button>
+      <div id="sectionsList"></div>
+    </div>
+
+    <!-- Phase 2 Features -->
+    <hr>
+    <div id="phase2Features">
+      <h2>Phase 2 Features</h2>
+
+      <!-- Register a student in a section -->
+      <h3>Register Student in Section</h3>
+      <input type="text" id="regStudentID" placeholder="Student ID">
+      <input type="text" id="regSectionID" placeholder="Section ID">
+      <button onclick="registerStudent()">Register</button>
+
+      <!-- View students in a section -->
+      <h3>View Students in Section</h3>
+      <input type="text" id="lookupSectionID" placeholder="Section ID">
+      <button onclick="getSectionStudents()">Show Students</button>
+      <div id="sectionStudentsList"></div>
+
+      <!-- View courses a student is registered for -->
+      <h3>View Student's Courses</h3>
+      <input type="text" id="lookupStudentID" placeholder="Student ID">
+      <button onclick="getStudentCourses()">Show Courses</button>
+      <div id="studentCoursesList"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
